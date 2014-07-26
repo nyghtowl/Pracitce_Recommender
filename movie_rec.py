@@ -45,7 +45,9 @@ class Recommender:
     def build_feature_matrix(self):
         self.feature_matrix = np.zeros((len(self.products),len(self.users))) - 1
 
-        for key, product in self.product_data.iteritems():
-            row = self.lookup_product[product['asin']]
+        for pid, product in self.product_data.iteritems():
+            row = self.lookup_product[pid]
+
             for review in product['reviews']:
-                self.feature_matrix[row,self.lookup_user[review['customer']]] = review['rating']
+                self.feature_matrix[row,self.lookup_user[review['customer']]] = float(review['rating'])
+
