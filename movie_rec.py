@@ -12,6 +12,7 @@ class Recommender:
     def __init__(self, file):
         self.product_data = json.loads(file)
         self.users = self._find_unique_users()
+        self.products = set()
 
     def _find_unique_users(self):
         user_list = [[review['customer'] for review in product['reviews']] for product_id, product in self.product_data.iteritems()]
@@ -32,3 +33,6 @@ class Recommender:
         for i, product in enumerate(self.products):
             product_table[product] = i
         self.lookup_product = product_table
+
+    def create_product_table2(self):
+        self.lookup_product2 = pd.DataFrame(index=self.products)
