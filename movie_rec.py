@@ -23,3 +23,6 @@ class Recommender:
             user_table[user] = i
         self.lookup_user = user_table
 
+
+    def create_user_table2(self):
+        self.lookup_user2 = pd.DataFrame(columns=[Ratings], index=self.users)
