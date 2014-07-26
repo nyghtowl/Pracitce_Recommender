@@ -6,6 +6,7 @@ Example Movie Recommender
 import itertools
 import json
 import pandas as pd
+import numpy as np
 
 class Recommender:
 
@@ -29,7 +30,7 @@ class Recommender:
 
 
     def create_user_table2(self):
-        self.lookup_user2 = pd.DataFrame(columns=[Ratings], index=self.users)
+        self.lookup_user2 = pd.DataFrame(np.range(0, len(self.isers), columns=["Positions"], index=self.users)
 
     def create_product_table(self): 
         product_table = {}
@@ -38,4 +39,4 @@ class Recommender:
         self.lookup_product = product_table
 
     def create_product_table2(self):
-        self.lookup_product2 = pd.DataFrame(index=self.products)
+        self.lookup_product2 = pd.DataFrame(np.range(0,len(self.products))index=self.products)
