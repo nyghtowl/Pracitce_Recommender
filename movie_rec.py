@@ -5,8 +5,8 @@ Example Movie Recommender
 
 class Recommender:
 
-    def __init__(self, products_file):
-        self.product_data = json.loads(products_file)
+    def __init__(self, file):
+        self.product_data = json.loads(file)
         self.users = set() #self._find_unique_users()
 
     def _find_unique_users(self):
