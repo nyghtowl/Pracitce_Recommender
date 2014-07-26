@@ -1,0 +1,8 @@
+*.py[co]
+.ds_store
+
+# Packages
+*.egg
+
+#Data
+*/data
