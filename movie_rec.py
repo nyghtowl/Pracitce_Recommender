@@ -12,11 +12,14 @@ class Recommender:
     def __init__(self, file):
         self.product_data = json.loads(file)
         self.users = self._find_unique_users()
-        self.products = set()
+        self.products = self._find_product_asin()
 
     def _find_unique_users(self):
         user_list = [[review['customer'] for review in product['reviews']] for product_id, product in self.product_data.iteritems()]
         return set(itertools.chain(*user_list))
+
+    def _find_product_asin(self):
+        return set([product['asin'] for product_id, product in self.product_data.iteritems()])
 
     def create_user_table(self):
         user_table = {}
