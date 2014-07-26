@@ -26,3 +26,9 @@ class Recommender:
 
     def create_user_table2(self):
         self.lookup_user2 = pd.DataFrame(columns=[Ratings], index=self.users)
+
+    def create_product_table(self): 
+        product_table = {}
+        for i, product in enumerate(self.products):
+            product_table[product] = i
+        self.lookup_product = product_table
