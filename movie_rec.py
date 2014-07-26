@@ -40,3 +40,12 @@ class Recommender:
 
     def create_product_table2(self):
         self.lookup_product2 = pd.DataFrame(np.range(0,len(self.products))index=self.products)
+
+
+    def build_feature_matrix(self):
+        self.feature_matrix = np.zeros((len(self.products),len(self.users))) - 1
+
+        for key, product in self.product_data.iteritems():
+            row = self.lookup_product[product['asin']]
+            for review in product['reviews']:
+                self.feature_matrix[row,self.lookup_user[review['customer']]] = review['rating']
